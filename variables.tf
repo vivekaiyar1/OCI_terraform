@@ -69,6 +69,13 @@ variable "public_ssh_key" {
   description = "In order to access your private nodes with a public SSH key you will need to set up a bastion host (a.k.a. jump box). If using public nodes, bastion is not needed. Left blank to not import keys."
 }
 
+variable "lb_shape_details_minimum_bandwidth_in_mbps" {
+  default = 10
+}
+variable "lb_shape_details_maximum_bandwidth_in_mbps" {
+  default = 100
+}
+
 # Network Details
 ## CIDRs
 variable "network_cidrs" {
@@ -78,7 +85,6 @@ variable "network_cidrs" {
     VCN-CIDR                      = "10.20.0.0/16"
     SUBNET-REGIONAL-CIDR          = "10.20.10.0/24"
     LB-SUBNET-REGIONAL-CIDR       = "10.20.20.0/24"
-    APIGW-FN-SUBNET-REGIONAL-CIDR = "10.20.30.0/24"
     ENDPOINT-SUBNET-REGIONAL-CIDR = "10.20.0.0/28"
     ALL-CIDR                      = "0.0.0.0/0"
     PODS-CIDR                     = "10.244.0.0/16"
@@ -94,7 +100,7 @@ variable "compartment_ocid" {
   default = ""
 }
 variable "region" {
-  default = ""
+  default = "ap-mumbai-1"
 }
 variable "user_ocid" {
   default = ""
@@ -106,9 +112,4 @@ variable "private_key_path" {
   default = ""
 }
 
-variable "lb_shape_details_minimum_bandwidth_in_mbps" {
-  default = 10
-}
-variable "lb_shape_details_maximum_bandwidth_in_mbps" {
-  default = 100
-}
+
