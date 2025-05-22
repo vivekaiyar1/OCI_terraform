@@ -26,7 +26,7 @@ resource "oci_containerengine_cluster" "oke_cluster" {
 }
 
 resource "oci_containerengine_node_pool" "oke_node_pool" {
-  cluster_id         = oci_containerengine_cluster.oke_cluster[0].id
+  cluster_id         = oci_containerengine_cluster.oke_cluster.id
   compartment_id     = var.compartment_ocid
   kubernetes_version = var.k8s_version
   name               = var.node_pool_name
@@ -39,7 +39,7 @@ resource "oci_containerengine_node_pool" "oke_node_pool" {
 
       content {
         availability_domain = placement_configs.value.name
-        subnet_id           = oci_core_subnet.oke_k8s_subnet[0].id
+        subnet_id           = oci_core_subnet.oke_k8s_subnet.id
       }
     }
     size = 3
