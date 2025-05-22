@@ -58,7 +58,7 @@ variable "image_operating_system" {
   description = "The OS/image installed on all nodes in the node pool."
 }
 variable "image_operating_system_version" {
-  default     = 9.5
+  default     = 9
   description = "The OS/image version installed on all nodes in the node pool."
 }
 variable "generate_public_ssh_key" {
