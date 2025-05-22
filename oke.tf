@@ -6,7 +6,7 @@ resource "oci_containerengine_cluster" "oke_cluster" {
 
   endpoint_config {
     is_public_ip_enabled = false
-    subnet_id            = oci_core_subnet.oke_k8s_endpoint_subnet[0].id
+    subnet_id            = oci_core_subnet.oke_k8s_subnet[0].id
     nsg_ids              = []
   }
   options {
@@ -39,7 +39,7 @@ resource "oci_containerengine_node_pool" "oke_node_pool" {
 
       content {
         availability_domain = placement_configs.value.name
-        subnet_id           = oci_core_subnet.oke_nodes_subnet[0].id
+        subnet_id           = oci_core_subnet.oke_k8s_subnet[0].id
       }
     }
     size = 3
