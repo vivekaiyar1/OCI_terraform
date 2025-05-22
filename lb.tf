@@ -31,7 +31,7 @@ resource "oci_load_balancer_backend_set" "backend_set" {
 resource "oci_load_balancer_backend" "backend" {
   load_balancer_id = oci_load_balancer_load_balancer.lb.id
   backendset_name  = oci_load_balancer_backend_set.backend_set.name
-  ip_address       = oci_containerengine_node_pool.oke_node_pool.nodes[count.index].private_ip
+  ip_address       = oci_containerengine_node_pool.oke_node_pool.nodes.private_ip
   port             = 80
   backup           = false
   drain            = false
