@@ -1,7 +1,7 @@
 resource "oci_core_security_list" "oke_nodes_security_list" {
   compartment_id = var.compartment_ocid
   display_name   = "oke-nodes-wkr-seclist-${random_string.deploy_id.result}"
-  vcn_id         = oci_core_virtual_network.oke_vcn[0].id
+  vcn_id         = oci_core_virtual_network.oke_vcn.id
 
   # Ingresses
   ingress_security_rules {
@@ -124,14 +124,14 @@ resource "oci_core_security_list" "oke_nodes_security_list" {
 resource "oci_core_security_list" "oke_lb_security_list" {
   compartment_id = var.compartment_ocid
   display_name   = "oke-lb-seclist-${random_string.deploy_id.result}"
-  vcn_id         = oci_core_virtual_network.oke_vcn[0].id
+  vcn_id         = oci_core_virtual_network.oke_vcn.id
 
 }
 
 resource "oci_core_security_list" "oke_endpoint_security_list" {
   compartment_id = var.compartment_ocid
   display_name   = "oke-k8s-api-endpoint-seclist-${random_string.deploy_id.result}"
-  vcn_id         = oci_core_virtual_network.oke_vcn[0].id
+  vcn_id         = oci_core_virtual_network.oke_vcn.id
 
   # Ingresses
 
