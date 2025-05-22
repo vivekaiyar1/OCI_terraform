@@ -3,8 +3,6 @@ data "oci_core_images" "node_pool_images" {
   operating_system         = var.image_operating_system
   operating_system_version = var.image_operating_system_version
   shape                    = var.instanceShape
-  sort_by                  = "TIMECREATED"
-  sort_order               = "DESC"
 }
 
 data "oci_containerengine_cluster_option" "oke" {

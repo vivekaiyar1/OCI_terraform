@@ -34,20 +34,20 @@ variable "node_pool_name" {
   description = "Name of the node pool"
 }
 variable "k8s_version" {
-  default     = "Latest"
+  default     = "v1.33.0"
   description = "Kubernetes version installed on your master and worker nodes"
 }
 variable "instanceShape" {
   description = "A shape is a template that determines the number of OCPUs, amount of memory, and other resources allocated to a newly created instance for the Worker Node. Select at least 2 OCPUs and 16GB of memory if using Flex shapes"
-  default = "VM.Standard.E4.Flex"
+  default = "VM.Standard.E5.Flex"
 }
 variable "ocpus" {
   description = "A shape is a template that determines the number of OCPUs, amount of memory, and other resources allocated to a newly created instance for the Worker Node. Select at least 2 OCPUs and 16GB of memory if using Flex shapes"
-  default = 1
+  default = 2
 }
 variable "memory" {
   description = "A shape is a template that determines the number of OCPUs, amount of memory, and other resources allocated to a newly created instance for the Worker Node. Select at least 2 OCPUs and 16GB of memory if using Flex shapes"
-  default = 8
+  default = 16
 }
 variable "node_pool_boot_volume_size_in_gbs" {
   default     = "60"
@@ -58,7 +58,7 @@ variable "image_operating_system" {
   description = "The OS/image installed on all nodes in the node pool."
 }
 variable "image_operating_system_version" {
-  default     = "9.5"
+  default     = 8
   description = "The OS/image version installed on all nodes in the node pool."
 }
 variable "generate_public_ssh_key" {
@@ -94,10 +94,10 @@ variable "network_cidrs" {
 
 # OCI Provider
 variable "tenancy_ocid" {
-  default = ""
+  default = "ocid1.tenancy.oc1..aaaaaaaaa43lkwx5r5yxbifq7pjbq47mb3q2tkq5kvbk2auhs53vousz6g2a"
 }
 variable "compartment_ocid" {
-  default = ""
+  default = "ocid1.tenancy.oc1..aaaaaaaaa43lkwx5r5yxbifq7pjbq47mb3q2tkq5kvbk2auhs53vousz6g2a"
 }
 variable "region" {
   default = "ap-mumbai-1"

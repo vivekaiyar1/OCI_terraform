@@ -1,7 +1,7 @@
 resource "oci_load_balancer_load_balancer" "lb" {
   compartment_id = var.compartment_ocid
   display_name   = "mushop-${random_string.deploy_id.result}"
-  shape          = "Flexible"
+  shape          = "flexible"
   subnet_ids     = [oci_core_subnet.oke_lb_subnet.id]
   is_private     = "false"
 
