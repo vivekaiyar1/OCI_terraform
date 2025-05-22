@@ -2,15 +2,15 @@ resource "oci_containerengine_cluster" "oke_cluster" {
   compartment_id     = var.compartment_ocid
   kubernetes_version = var.k8s_version
   name               = "test-cluster"
-  vcn_id             = oci_core_virtual_network.oke_vcn[0].id
+  vcn_id             = oci_core_virtual_network.oke_vcn.id
 
   endpoint_config {
     is_public_ip_enabled = false
-    subnet_id            = oci_core_subnet.oke_k8s_subnet[0].id
+    subnet_id            = oci_core_subnet.oke_k8s_subnet.id
     nsg_ids              = []
   }
   options {
-    service_lb_subnet_ids = [oci_core_subnet.oke_lb_subnet[0].id]
+    service_lb_subnet_ids = [oci_core_subnet.oke_lb_subnet.id]
     add_ons {
       is_kubernetes_dashboard_enabled = var.cluster_options_add_ons_is_kubernetes_dashboard_enabled
     }
