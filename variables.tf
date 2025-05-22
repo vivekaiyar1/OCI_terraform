@@ -43,11 +43,11 @@ variable "instanceShape" {
 }
 variable "ocpus" {
   description = "A shape is a template that determines the number of OCPUs, amount of memory, and other resources allocated to a newly created instance for the Worker Node. Select at least 2 OCPUs and 16GB of memory if using Flex shapes"
-  default = 2
+  default = 1
 }
 variable "memory" {
   description = "A shape is a template that determines the number of OCPUs, amount of memory, and other resources allocated to a newly created instance for the Worker Node. Select at least 2 OCPUs and 16GB of memory if using Flex shapes"
-  default = 16
+  default = 8
 }
 variable "node_pool_boot_volume_size_in_gbs" {
   default     = "60"
