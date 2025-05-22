@@ -13,9 +13,9 @@ resource "oci_core_subnet" "oke_k8s_subnet" {
   dns_label                  = "okek8s${random_string.deploy_id.result}"
   vcn_id                     = oci_core_virtual_network.oke_vcn.id
   prohibit_public_ip_on_vnic = (var.cluster_endpoint_visibility == "Private") ? true : false
-  route_table_id             = (var.cluster_endpoint_visibility == "Private") ? oci_core_route_table.oke_private_route_table[0].id : oci_core_route_table.oke_public_route_table[0].id
-  dhcp_options_id            = oci_core_virtual_network.oke_vcn[0].default_dhcp_options_id
-  security_list_ids          = [oci_core_security_list.oke_endpoint_security_list[0].id]
+  route_table_id             = (var.cluster_endpoint_visibility == "Private") ? oci_core_route_table.oke_private_route_table.id : oci_core_route_table.oke_public_route_table.id
+  dhcp_options_id            = oci_core_virtual_network.oke_vcn.default_dhcp_options_id
+  security_list_ids          = [oci_core_security_list.oke_endpoint_security_list.id]
 
 }
 
@@ -26,9 +26,9 @@ resource "oci_core_subnet" "oke_lb_subnet" {
   dns_label                  = "okelbsn${random_string.deploy_id.result}"
   vcn_id                     = oci_core_virtual_network.oke_vcn.id
   prohibit_public_ip_on_vnic = false
-  route_table_id             = oci_core_route_table.oke_public_route_table[0].id
-  dhcp_options_id            = oci_core_virtual_network.oke_vcn[0].default_dhcp_options_id
-  security_list_ids          = [oci_core_security_list.oke_lb_security_list[0].id]
+  route_table_id             = oci_core_route_table.oke_public_route_table.id
+  dhcp_options_id            = oci_core_virtual_network.oke_vcn.default_dhcp_options_id
+  security_list_ids          = [oci_core_security_list.oke_lb_security_list.id]
 
 }
 
