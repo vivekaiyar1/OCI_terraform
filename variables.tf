@@ -87,9 +87,15 @@ variable "network_cidrs" {
 }
 
 # OCI Provider
-variable "tenancy_ocid" {}
-variable "compartment_ocid" {}
-variable "region" {}
+variable "tenancy_ocid" {
+  default = ""
+}
+variable "compartment_ocid" {
+  default = ""
+}
+variable "region" {
+  default = ""
+}
 variable "user_ocid" {
   default = ""
 }
